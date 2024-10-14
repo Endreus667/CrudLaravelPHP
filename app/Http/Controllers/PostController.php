@@ -7,7 +7,7 @@ use App\models\Post;
 
 class PostController extends Controller
 {
-    public function create(Request $resquest) {
+    public function create(Request $r) {
         $new_post = [
          'title' => 'crud one',
          'content' => 'Conteudo qualquer',
@@ -52,4 +52,12 @@ class PostController extends Controller
 
         return $posts;
     }
+
+    public function delete(Request $r) {
+
+
+        $post = Post::where('id','>',0)->delete();
+        return $post;
+    }
+
 }
